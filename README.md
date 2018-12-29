@@ -18,6 +18,11 @@ _Reference_: https://www.amazon.com/Modern-Java-Action-functional-programming/dp
 without traversing it (implements `RandomAccess`), as 
 it’s necessary to do with the latter.
 
+The stream is internally splitted using Spliterator, please
+refer my other github projects:
+* https://github.com/mtumilowicz/java11-spliterator
+* https://github.com/mtumilowicz/java11-spliterator-forkjoin
+
 # project description
 We provide basic comparison of parallel streams over `ArrayList`
 and `LinkedList`.

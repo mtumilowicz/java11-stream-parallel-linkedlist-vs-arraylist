@@ -16,7 +16,7 @@ public class ListParallelStreamTest {
 
         setAll(integers);
         
-        System.out.println(timedSum(integers));
+        System.out.println(timeOfSumming(integers));
     }
 
     @Test
@@ -25,7 +25,7 @@ public class ListParallelStreamTest {
 
         setAll(integers);
 
-        System.out.println(timedSum(integers));
+        System.out.println(timeOfSumming(integers));
     }
 
     private void setAll(List<Integer> integers) {
@@ -34,13 +34,13 @@ public class ListParallelStreamTest {
                 .forEach(i -> integers.add(random.nextInt(500)));
     }
 
-    private long timedSum(List<Integer> integers) {
+    private long timeOfSumming(List<Integer> integers) {
         long startTime = System.currentTimeMillis();
-        sum(integers);
+        parallelSum(integers);
         return System.currentTimeMillis() - startTime;
     }
 
-    private int sum(List<Integer> values) {
+    private int parallelSum(List<Integer> values) {
         return values.parallelStream().mapToInt(i -> i).sum();
     }
 }

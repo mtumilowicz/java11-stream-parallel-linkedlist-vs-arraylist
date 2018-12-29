@@ -18,14 +18,33 @@ _Reference_: https://www.amazon.com/Modern-Java-Action-functional-programming/dp
 without traversing it (implements `RandomAccess`), as 
 it’s necessary to do with the latter.
 
-The stream is internally splitted using Spliterator, please
-refer my other github projects:
+The stream is internally splitted using `Spliterator` - 
+please refer my other github projects:
 * https://github.com/mtumilowicz/java11-spliterator
 * https://github.com/mtumilowicz/java11-spliterator-forkjoin
 
 # project description
 We provide basic comparison of parallel streams over `ArrayList`
 and `LinkedList`.
+* compare
+    * `ArrayList`
+        ```
+        var integers = new ArrayList<Integer>();
+        
+        setAll(integers);
+        
+        System.out.println(timeOfSumming(integers));
+        ```
+        **time: 60**
+    * `LinkedList`
+        ```
+        var integers = new LinkedList<Integer>();
+        
+        setAll(integers);
+        
+        System.out.println(timeOfSumming(integers));
+        ```
+        **time: 400**
 * summing in parallel
     ```
     private int parallelSum(List<Integer> values) {
@@ -48,22 +67,3 @@ and `LinkedList`.
                 .forEach(i -> integers.add(random.nextInt(500)));
     }
     ```
-* compare
-    * `ArrayList`
-        ```
-        var integers = new ArrayList<Integer>();
-        
-        setAll(integers);
-        
-        System.out.println(timeOfSumming(integers));
-        ```
-        **time: 60**
-    * `LinkedList`
-        ```
-        var integers = new LinkedList<Integer>();
-        
-        setAll(integers);
-        
-        System.out.println(timeOfSumming(integers));
-        ```
-        **time: 400**
